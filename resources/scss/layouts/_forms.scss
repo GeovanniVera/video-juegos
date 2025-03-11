@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.container-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.form{
+    padding: 4rem 2rem;
+    background-color: v.$beige;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50rem;
+    gap: 4rem;
+    .row{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        label{
+            color: v.$negro;
+        }
+        input{
+            padding: 1rem ;
+            border: none
+        }
+
+        .submit{
+            @include m.btn(v.$negro,1rem, v.$blanco,block);
+            
+        }
+    }
+    h1{
+        text-align: center;
+        color: v.$negro;
+    }
+    a{
+        color:v.$gris;
+        text-align: center;
+        &:hover{
+            color: v.$negro;
+        }
+    }
+}
+

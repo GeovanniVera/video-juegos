@@ -1,0 +1,19 @@
+{
+  "name": "videojuegos",
+  "version": "1.0.0",
+  "description": "NPM SASS BOOSTRAP5",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css",
+    "dev": "gulp"
+  },
+  "author": "Geovanni-Vera",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.75.0"
+  }
+}
