@@ -1,5 +1,5 @@
-<footer>
-    <p>&copy; 2024 Mi Sitio Web</p>
+<footer class="footer">
+    <p>&copy; Group Tech - 2025</p>
 </footer>
 <?php
 /**

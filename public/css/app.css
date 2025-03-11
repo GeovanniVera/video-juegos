@@ -352,15 +352,15 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 h2 {
-  font-size: 4.6rem;
+  font-size: 2.5rem;
 }
 
 h3 {
-  font-size: 6rem;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -376,23 +376,17 @@ body > section {
 }
 
 .header {
-  background-color: #ddc8a7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #951f2b;
+  padding: 4rem 2rem;
+}
+.header h2 {
+  color: #FFFFFF;
 }
 @media (min-width: 768px) {
-  .header.fixed {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    box-shadow: 0.1rem 0.2rem 0.3rem #333;
-  }
-}
-.header h1 {
-  color: #000000;
-  text-align: center;
-}
-@media (min-width: 768px) {
-  .header h1 {
+  .header h2 {
     text-align: left;
     margin: 0;
   }
@@ -400,37 +394,40 @@ body > section {
 
 .navegacion-principal {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
 }
-@media (min-width: 768px) {
-  .navegacion-principal {
-    flex-direction: row;
-  }
-}
 .navegacion-principal a {
-  color: #FFFFFF;
-  font-size: 2.4rem;
+  color: rgb(196, 196, 196);
+  font-size: 1.5rem;
 }
 .navegacion-principal a:hover, .navegacion-principal a.active {
-  color: #951f2b;
+  color: #FFFFFF;
 }
 
 .container-form {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(202, 202, 202) 84%);
+  margin-bottom: 4rem;
+  margin-top: 5rem;
 }
 
 .form {
+  border: none;
+  border-radius: 5px;
   padding: 4rem 2rem;
-  background-color: #ddc8a7;
+  background-color: #951f2b;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 50rem;
-  gap: 4rem;
+  max-width: 45rem;
+  gap: 2rem;
 }
 .form .row {
   display: flex;
@@ -438,7 +435,7 @@ body > section {
   gap: 3rem;
 }
 .form .row label {
-  color: #000000;
+  color: #FFFFFF;
 }
 .form .row input {
   padding: 1rem;
@@ -458,19 +455,20 @@ body > section {
 }
 .form h1 {
   text-align: center;
-  color: #000000;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
 }
 .form a {
-  color: rgb(196, 196, 196);
+  color: #FFFFFF;
   text-align: center;
 }
 .form a:hover {
-  color: #000000;
+  color: rgb(196, 196, 196);
 }
 
 .footer {
   background-color: #951f2b;
-  padding: 2rem 0;
+  padding: 3rem;
 }
 .footer p {
   margin: 0;

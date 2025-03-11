@@ -5,22 +5,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(202,202,202,1) 84%);
+    margin-bottom: 4rem;
+    margin-top: 5rem;
+
     
 }
 .form{
+    border: none;
+    border-radius: 5px;
     padding: 4rem 2rem;
-    background-color: v.$beige;
+    background-color: v.$rojo;
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 50rem;
-    gap: 4rem;
+    max-width: 45rem;
+    gap: 2rem;
     .row{
         display: flex;
         flex-direction: column;
         gap: 3rem;
         label{
-            color: v.$negro;
+            color: v.$blanco;
         }
         input{
             padding: 1rem ;
@@ -34,13 +42,14 @@
     }
     h1{
         text-align: center;
-        color: v.$negro;
+        color: v.$blanco;
+        margin: 0 0 10px 0;
     }
     a{
-        color:v.$gris;
+        color:v.$blanco;
         text-align: center;
         &:hover{
-            color: v.$negro;
+            color: v.$gris;
         }
     }
 }

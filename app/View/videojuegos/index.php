@@ -13,7 +13,7 @@
  */
 
 // Define el título de la página.
-$titulo = "Productos";
+$titulo = "Videos";
 
 // Inicia el almacenamiento en búfer de salida.
 ob_start();

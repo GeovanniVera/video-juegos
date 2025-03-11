@@ -23,6 +23,9 @@ $routes = [
         'GET' => ['LoginController', 'loginForm'],      // Mostrar formulario de login
         'POST' => ['LoginController', 'loginProcess'],   // Procesar formulario de login
     ],
+    '/videojuegos' => [
+        'GET'=>['VideojuegosController','index']
+    ]
 ];
 
 // Devolver el arreglo de rutas.

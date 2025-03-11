@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Core\Database;
+use App\Core\ErrorLogger;
 use App\Exceptions\RepositoryException;
 use PDO;
 use PDOException;
@@ -12,18 +13,18 @@ define("LOG_FILE_PATH", realpath(__DIR__ . '/../../storage/logs/mi_aplicacion.lo
 
 abstract class BaseRepository
 {
-    protected static $conn;
-    protected static string $table;
-
+    protected $conn;
+    protected string $table;
+    protected $log;
     public function __construct(string $table)
     {
+
         if (!preg_match('/^[a-zA-Z0-9_]+$/', $table)) {
             throw new \InvalidArgumentException("El nombre de la tabla no es válido");
         }
-
         $database = Database::getInstance();
-        self::$conn = $database->getConnection();
-        self::$table = $table;
+        $this->conn = $database->getConnection();
+        $this->table = $table;
     }
 
     abstract public function getModelClass(): string;
@@ -38,15 +39,16 @@ abstract class BaseRepository
             if (empty($results)) {
                 return null;
             }
-            $modelClass = $this->getModelClass();
             $models = [];
             foreach ($results as $row) {
-                $models[] = new $modelClass($row); // Asumiendo que el modelo tiene un constructor que recibe un array asociativo
+                $models[] = $this->arrayToModel($row);
             }
             return $models;
         } catch (PDOException $e) {
-            error_log(date("Y-m-d H:i:s") . " - Error en BaseRepository::all(): " . $e->getMessage() . "\n", 3, LOG_FILE_PATH); // El '3' indica que se registra en un archivo
-            throw new RepositoryException("Error al recuperar datos: " . $e->getMessage(), 0, $e);
+            $error = new ErrorLogger(LOG_FILE_PATH);
+            $repositoryException = new RepositoryException("Error al recuperar datos: " . $e->getMessage(), 0, $e);
+            $error->logRepositoryException($repositoryException); // Cambiado a $repositoryException
+            throw $repositoryException; // Lanzar la RepositoryException
         }
     }
 
@@ -63,8 +65,10 @@ abstract class BaseRepository
             return self::arrayToModel($result);
             
         } catch (PDOException $e) {
-            error_log(date("Y-m-d H:i:s") . " - Error en BaseRepository::all(): " . $e->getMessage() . "\n", 3, LOG_FILE_PATH); // El '3' indica que se registra en un archivo
-            throw new RepositoryException("Error al recuperar datos: " . $e->getMessage(), 0, $e);
+            $error = new ErrorLogger(LOG_FILE_PATH);
+            $repositoryException = new RepositoryException("Error al recuperar datos: " . $e->getMessage(), 0, $e);
+            $error->logRepositoryException($repositoryException); // Cambiado a $repositoryException
+            throw $repositoryException;
         }
     }
 
@@ -93,8 +97,10 @@ abstract class BaseRepository
 
             return true;
         } catch (PDOException $e) {
-            error_log(date("Y-m-d H:i:s") . " - Error en BaseRepository::create(): " . $e->getMessage() . "\n", 3, LOG_FILE_PATH);
-            throw new RepositoryException("Error al crear registro: " . $e->getMessage(), 0, $e);
+            $error = new ErrorLogger(LOG_FILE_PATH);
+            $repositoryException = new RepositoryException("Error al recuperar datos: " . $e->getMessage(), 0, $e);
+            $error->logRepositoryException($repositoryException); // Cambiado a $repositoryException
+            throw $repositoryException;
         }
     }
 
@@ -114,8 +120,10 @@ abstract class BaseRepository
 
         return true;
     } catch (PDOException $e) {
-        error_log(date("Y-m-d H:i:s") . " - Error en BaseRepository::update(): " . $e->getMessage() . "\n", 3, LOG_FILE_PATH);
-        throw new RepositoryException("Error al actualizar registro: " . $e->getMessage(), 0, $e);
+        $error = new ErrorLogger(LOG_FILE_PATH);
+        $repositoryException = new RepositoryException("Error al recuperar datos: " . $e->getMessage(), 0, $e);
+        $error->logRepositoryException($repositoryException); // Cambiado a $repositoryException
+        throw $repositoryException;
     }
 }
 

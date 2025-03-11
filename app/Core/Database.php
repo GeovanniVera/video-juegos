@@ -3,9 +3,9 @@ namespace App\Core;
 
 class Database {
     private $host = "localhost";
-    private $db_name = "sistema_login";
-    private $username = "root";
-    private $password = "vera230901";
+    private $db_name = "sistema_login";//cambia tu base de datos
+    private $username = "root";//cambia tu usuario
+    private $password = "vera230901";//Cambia tu contraseña
     private $port = "3306";
     
     private \PDO $conn; // Propiedad privada
