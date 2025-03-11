@@ -5,10 +5,10 @@
 package-lock.json
 # Ignorar la carpeta de dependencias de Composer (se genera automáticamente).
 /vendor/
+#Ignora la carpeta node modules
 /node_modules/
 # Ignorar los archivos de configuración de Composer generados automáticamente
 /composer.lock
-
 # Ignorar archivos de configuración específicos del entorno (pueden variar según tu entorno de desarrollo)
 *.env
 .env.*
