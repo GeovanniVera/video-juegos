@@ -1,3 +1,18 @@
+-- Crea la base de datos gamehub si no existe
+CREATE DATABASE IF NOT EXISTS gamehub;
+
+-- Crea el usuario gamehub con la contraseña gamehub123
+CREATE USER 'gamehub'@'%' IDENTIFIED BY 'gamehub123';
+
+-- Otorga todos los privilegios al usuario gamehub sobre la base de datos gamehub
+GRANT ALL PRIVILEGES ON gamehub.* TO 'gamehub'@'%';
+
+-- Actualiza los privilegios
+FLUSH PRIVILEGES;
+
+-- usa la base de datos
+USE gamehub;
+
 -- Tabla de Usuarios
 CREATE TABLE user (
     id INT PRIMARY KEY AUTO_INCREMENT,
