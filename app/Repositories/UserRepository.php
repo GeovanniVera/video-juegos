@@ -7,7 +7,7 @@ class UserRepository extends BaseRepository
 {
     public function __construct()
     {
-        parent::__construct('usuarios'); // Nombre de la tabla
+        parent::__construct('user'); // Nombre de la tabla
     }
 
     public function getModelClass(): string

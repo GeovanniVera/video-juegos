@@ -11,6 +11,7 @@ Este proyecto Es un catalogo de videojuegos CRUD y Transacciones
 * Ejectua el comando npm i
 * Ejecuta el comando composer install
 * para ejecutar scss y darle estilos a la aplicacion usa el comando npm run dev
+* para ejecutar el servidor de php el comando es php -S localhost:3000 -t public 
 
 
 ## Estructura del Proyecto

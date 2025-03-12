@@ -72,6 +72,26 @@ abstract class BaseRepository
         }
     }
 
+    public function findBy($value,$field) : ?object{
+        try {
+            $query = "SELECT * FROM ". $this->table." WHERE $field = :$field";
+            $stmt = $this->conn->prepare($query);
+            $stmt ->bindValue(":$field",$value,PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if(empty($result)){
+                return null;
+            }
+            return self::arrayToModel($result);
+            
+        } catch (PDOException $e) {
+            $error = new ErrorLogger(LOG_FILE_PATH);
+            $repositoryException = new RepositoryException("Error al recuperar datos: " . $e->getMessage(), 0, $e);
+            $error->logRepositoryException($repositoryException); // Cambiado a $repositoryException
+            throw $repositoryException;
+        }
+    }
+
     public function save(object $model): bool
     {
         if ($model->id === null) {

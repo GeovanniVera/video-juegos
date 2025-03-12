@@ -50,6 +50,6 @@ class User
     }
 
     public function getPassword(){
-
+        return $this->password;
     }
 }
