@@ -1,4 +1,6 @@
-$fuente_principal : "Montserrat", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+$fuente_principal : "Roboto", sans-serif;
 
 // Colores
 $beige:#ddc8a7;
@@ -7,6 +9,7 @@ $gris:rgb(196, 196, 196);
 $dorado: #c3aa72;
 $negro: #000000;
 $blanco: #FFFFFF;
+$verde:rgb(2, 100, 2);
 
 // Media Queries
 $telefono: 480px;

@@ -4,8 +4,11 @@
 .header {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-
+    @include m.tablet{
+        flex-direction: row;
+    }
     background-color: v.$rojo;
     padding: 4rem 2rem;
 
@@ -19,12 +22,15 @@
 }
 .navegacion-principal {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
     
-    
+    @include m.tablet{
+    flex-direction: row;
+
+    }
     a {
         color: v.$gris;
         font-size: 1.5rem;

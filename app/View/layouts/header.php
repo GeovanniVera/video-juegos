@@ -1,5 +1,5 @@
 <header class="header">
-    <h2>Video Juegos</h2>
+    <h2>Game-Hub</h2>
     <?php include __DIR__ . '/nav_superior.php'; // Navegación por defecto?>
 </header>
 <?php

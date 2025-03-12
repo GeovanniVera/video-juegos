@@ -33,6 +33,7 @@ p {
 }
 a {
     text-decoration: none;
+    font-size: 2rem;
 }
 h1, h2, h3 {
     margin: 0 0 5rem 0;
@@ -56,4 +57,18 @@ img {
 }
 body > section {
     padding: 10rem 0
+}
+
+.alerta {
+    text-align: center;
+    padding: 1rem 0.5rem;
+    color: v.$blanco;
+    margin: 1rem 0;
+    &.error{
+        background-color: v.$rojo;
+    }
+
+    &.exito{
+        background-color: v.$verde;
+    }
 }

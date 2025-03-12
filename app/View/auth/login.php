@@ -21,38 +21,43 @@ ob_start();
 ?>
 <!-- Aqui va el codigo de la pagina este se guardara en la variable $contenido -->
 <div class="container-form">
-    <?php if (isset($exitos) && !empty($exitos)): ?>
-        <?php foreach ($exitos as $exito): ?>
-            <div class="alert alert-success">
-                <?php echo $exito ?>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
 
-    <?php if (isset($errores) && !empty($errores)): ?>
-        <?php foreach ($errores as $error): ?>
-            <div class="alert alert-danger">
-                <?php echo $error ?>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    <div class="container">
+        <?php if (isset($exitos) && !empty($exitos)): ?>
+            <?php foreach ($exitos as $exito): ?>
+                <div class="alerta exito">
+                    <?php echo $exito ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
-    <form action="/login" method="post" class="form" id="loginForm">
-        <h1 class="text-center">Inicia sesión</h1>
-        <div class="row">
-            <label for="email" class="form-label">Correo Electronico:</label>
-            <input type="email" name="email" id="email" class="form-control">
-        </div>
-        <div class="row">
-            <label for="password" class="form-label">Contraseña:</label>
-            <input type="password" name="password" id="password" class="form-control">
-        </div>
-        <div class="row">
-            <input type="submit" value="Iniciar Sesion" class="submit">
-        </div>
-        <a href="">¿olvidaste tu Contraseña?</a>
-    </form>
-    
+        <?php if (isset($errores) && !empty($errores)): ?>
+            <?php foreach ($errores as $error): ?>
+                <div class="alerta error">
+                    <?php echo $error ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <div class="alerta exito">
+                    Error al iniciar sesion
+                </div>
+        <form action="/login" method="post" class="form" id="loginForm">
+            <h1 class="text-center">Inicia sesión</h1>
+            <div class="row">
+                <label for="email" class="form-label">Correo Electronico:</label>
+                <input type="email" name="email" id="email" class="form-control">
+            </div>
+            <div class="row">
+                <label for="password" class="form-label">Contraseña:</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="row">
+                <input type="submit" value="Iniciar Sesion" class="submit">
+            </div>
+            <a href="">¿olvidaste tu Contraseña?</a>
+        </form>
+    </div>
+
 </div>
 <script src="/js/login.js"></script>
 <!-- Aqui termina el codigo de la pagina-->
